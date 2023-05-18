@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 from pathlib import Path
 from decouple import config
 
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -84,6 +87,8 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'accounts.User'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -125,7 +130,15 @@ STATICFILES_DIRS = [
     'magazinulDeTraditie/static'
 ]
 
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
