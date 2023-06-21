@@ -1,0 +1,11 @@
+{% autoescape off %}
+
+Hi {{user.first_name}},
+
+{% if is_approved %}
+Congratulations! Your submission has been approved by our admin team. --artisanAlley
+{% else %}
+We are sorry! You are not eligible for publishing your products on our marketplace. For more details, please contact support@artisanalley.com --artisanAlley
+{% endif %}
+
+{% endautoescape %} 
